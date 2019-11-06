@@ -610,7 +610,7 @@ PlayerSettings:
   facebookStatus: 1
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
-  apiCompatibilityLevel: 6
+  apiCompatibilityLevel: 2
   cloudProjectId: cd1d1925-9396-46b6-8f39-ec5c2bf45e2e
   framebufferDepthMemorylessMode: 0
   projectName: Roll a bol

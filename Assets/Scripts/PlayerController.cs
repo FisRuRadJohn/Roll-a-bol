@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody myRigidBody;
     public float speed;
+    public float jump;
     public Text scoreText;
 
     int score = 0;
@@ -19,20 +20,20 @@ public class PlayerController : MonoBehaviour
         scoreText.text = "SCORE :" + 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void FixedUpdate()
     {
         float movementHorizontal = Input.GetAxis("Horizontal"); //Declara la variable y le asigna el valor del eje horizontal
          
         float movementVertical = Input.GetAxis("Vertical");
-        
 
-        Vector3 movement = new Vector3(movementHorizontal, 0f, movementVertical);
+        if (Input.GetKeyDown(KeyCode.Space))
+            jump = 30.3f;
+        else
+            jump = 0;
+
+        Vector3 movement = new Vector3(movementHorizontal, jump, movementVertical);
+
         myRigidBody.AddForce(speed * movement);
         
     }
