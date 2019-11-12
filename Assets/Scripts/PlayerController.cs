@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jump;
     public Text scoreText;
+    public bool Grounded;
 
     int score = 0;
 
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
          
         float movementVertical = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Grounded)
             jump = 30.3f;
         else
             jump = 0;
@@ -51,6 +52,20 @@ public class PlayerController : MonoBehaviour
 
             scoreText.text = "SCORE :" + score;
 
+        }
+
+        if (other.gameObject.CompareTag("Escenario"))
+        {
+            Grounded = true;
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Escenario"))
+        {
+            Grounded = false;
         }
     }
 }

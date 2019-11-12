@@ -16,5 +16,6 @@ public class Camera : MonoBehaviour
     void Update()
     {
         transform.position = target.transform.position + offset;
+        
     }
 }
