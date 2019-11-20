@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float jump;
     public Text scoreText;
     public bool Grounded;
+    public Transform respawn;
+
 
     int score = 0;
 
@@ -19,6 +21,15 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Hello world!!!");
         scoreText.text = "SCORE :" + 0;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            gameObject.transform.position = respawn.transform.position;
+
+        }
     }
 
 
